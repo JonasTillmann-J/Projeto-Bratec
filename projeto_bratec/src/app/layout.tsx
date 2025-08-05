@@ -59,22 +59,7 @@ export default function RootLayout({
     <html>
       <body className="bg-gray-900 text-white">
         <main className="p-6 min-h-screen">{children}
-          <section className='bg-grey-200 container mx-auto'>
-            <nav>
-              <li>
-                <Link href="/" className="text-blue-500 hover:underline">Serviços</Link>
-              </li>
-              <li>
-                <Link href="/" className='text-blue-500 hover:underline'>Produtos</Link>
-              </li>
-              <li>
-                <Link href="/" className='text-blue-500 hover:underline'>Sobre-Nós</Link>
-              </li>
-              <li>
-                <Link href="/" className='text-blue-500 hover:underline'>Contato</Link>
-              </li>
-            </nav>
-          </section>
+          
         </main>
         <footer className="bg-gray-800 p-4 text-sm text-center text-gray-400">
           &copy; 2025 ArkTech – Soluções sofisticadas para empresas.

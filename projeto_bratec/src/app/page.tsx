@@ -1,12 +1,37 @@
 import Link from 'next/link'
 export default function Home() {
   return (
-    <div className="container mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-4">Bem-vindo à Bratec Assistência Técnica</h1>
-      <p className="mb-4">Reparo profissional de celulares em Blumenau‑SC.</p>
-      <Link href="/servicos" className="text-pink-500 hover:underline">
-        Confira nossos serviços
-      </Link>
-    </div>
+  <section className=''>
+    <nav className=''>
+      <div>
+        <Link href="/" className="text-5xl font-bold text-gray-800 p-0.7 absolute left-0 top-8">
+          Bratec
+        </Link>
+      </div>
+      <ul className='list-none flex justify-center gap-4 p-4 '>
+        <li className='ml-15 bg-transparent border-3 border-transparent hover:border-pink-800 rounded-full hover:bg-red-700 transition duration-700'>
+          <Link href="/" className="text-blue-500 text-2xl m-3">
+            Serviços
+          </Link>
+        </li>
+        <li className='ml-15 bg-transparent border-3 border-transparent hover:border-pink-800 rounded-full hover:bg-red-700 transition duration-700'>
+          <Link href="/" className='text-blue-500 text-2xl m-3'>
+            Produtos
+          </Link>
+        </li>
+        <li className='ml-15 bg-transparent border-3 border-transparent hover:border-pink-800 rounded-full hover:bg-red-700 transition duration-700'>
+          <Link href="/" className='text-blue-500 text-2xl m-3'>
+            Sobre-Nós
+          </Link>
+        </li>
+        <li className='ml-15 bg-transparent border-3 border-transparent hover:border-pink-800 rounded-full hover:bg-red-700 transition duration-700'>
+          <Link href="/" className='text-blue-500 text-2xl m-3'>
+            Contato
+          </Link>
+        </li>
+      </ul>
+    </nav>
+  </section>
+  
   ) 
 }
