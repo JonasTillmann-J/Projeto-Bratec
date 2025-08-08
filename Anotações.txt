@@ -1,0 +1,95 @@
+1. Conceito geral
+Essas funções permitem criar valores dinâmicos, que se adaptam ao tamanho da tela, mas com limites.
+Elas funcionam em qualquer propriedade que aceite unidades numéricas — exemplo: font-size, width, padding, gap.
+------------------------------------------------------------------------------------------------------
+2. min()
+Sintaxe:
+
+min(valor1, valor2, ...);
+O navegador pega o menor valor entre os passados.
+Útil para impedir que algo cresça demais.
+
+Exemplo prático:
+
+.container {
+  width: min(90%, 1200px); /* Máximo 1200px, mas pode ser menor */
+}
+Se a tela for gigante → máximo 1200px.
+Se for menor → ajusta para 90% da largura.
+
+------------------------------------------------------------------------------------------------------
+3. max()
+Sintaxe:
+
+max(valor1, valor2, ...);
+O navegador pega o maior valor.
+
+Útil para garantir que algo nunca fique muito pequeno.
+
+Exemplo prático:
+
+h1 {
+  font-size: max(2rem, 4vw); /* Cresce junto com a tela, mas nunca menor que 2rem */
+}
+------------------------------------------------------------------------------------------------------
+4. clamp()
+Sintaxe:
+
+clamp(valorMinimo, valorIdeal, valorMaximo);
+É como unir max() e min() em uma única linha.
+
+Valor mínimo → nunca será menor que isso.
+
+Valor ideal → valor fluido, geralmente em vw.
+
+Valor máximo → nunca será maior que isso.
+
+Exemplo prático para tipografia:
+
+h1 {
+  font-size: clamp(1.5rem, 2vw + 1rem, 3rem);
+}
+Mínimo: 1.5rem
+
+Ideal: cresce com 2vw + 1rem
+
+Máximo: 3rem
+
+Isso significa que em telas pequenas → fica legível,
+em telas médias → cresce proporcionalmente,
+em telas grandes → não explode.
+------------------------------------------------------------------------------------------------------
+5. Aplicando no seu código
+Você pode substituir medidas fixas por soluções fluidas com limites.
+
+Antes (fixo e pouco responsivo):
+
+.btnlogin {
+  gap: var(--gap-elementos-btn-log-cad); /* 10rem fixo */
+}
+Depois (fluido e limitado):
+
+.btnlogin {
+  gap: clamp(1rem, 5vw, 10rem); /* mínimo 1rem, cresce até 10rem */
+}
+Outro exemplo para largura de botões:
+
+.btn_cadastro {
+  padding: clamp(0.5rem, 1vw, 1rem) clamp(1rem, 2vw, 2rem);
+}
+
+Para container principal:
+
+main {
+  width: min(90%, 1200px); /* Nunca passa de 1200px, mas é flexível */
+}
+------------------------------------------------------------------------------------------------------
+6. Vantagens estratégicas
+
+Reduz drasticamente o número de media queries.
+
+Garante que o design não “quebre” em telas muito pequenas ou muito grandes.
+
+Dá mais previsibilidade na escala de fontes e espaçamentos.
+
+É suportado na maioria dos navegadores modernos (exceto versões antigas de IE).
