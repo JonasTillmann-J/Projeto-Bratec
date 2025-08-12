@@ -1,29 +1,29 @@
 :root {
-  /* Cores */
-  --cor-borda-btn-login: black;
-  --cor-borda-btn-login-hover: rgb(0, 68, 255);
-  --cor-fundo-btn-login-hover: rgb(255, 0, 64);
-  --cor-fundo-footer: transparent;
-  --cor-paragrafo-footer-1: rgb(108, 117, 125);
-  --cor-paragrafo-footer-2: rgb(108, 117, 125);
+  /* ===== Cores Gerais ===== */
+  --BG-color-dark-mode: #000;
+  --BG-color-light-mode: #000;
   --dark-color: #000;
-
-  /* Textos */
+  /* ===== Tipografia Geral ===== */
   --font-geral: monospace;
-  --font-titulo: 'Arial', sans-serif;
-  --font-texto: 'Verdana', sans-serif;
   --font-size-16px: 16px;
   --font-size-titul-24px: 24px;
   --font-size-texto-18px: 18px;
-  /*Testos Footer*/
-  --font-size-footer-G:26px;
-  --font-size-footer-P:16px;
-  --font-size-footer-G-scream-400px:26px;
-  --font-size-footer-P-scream-400px:25px;
-
-  /* Medidas */
+  /* ===== Botões de Cadastro/Login ===== */
+  --cor-do-texto-no-hover: pink;
+  --cor-borda-btn-login: black;
+  --cor-borda-btn-login-hover: rgb(0, 68, 255);
+  --cor-fundo-btn-login-hover: rgb(255, 0, 64);
   --gap-elementos-btn-log-cad: 10rem;
+  /* ===== Footer ===== */
+  --cor-fundo-footer: transparent;
+  --cor-paragrafo-footer-1: rgb(108, 117, 125);
+  --cor-paragrafo-footer-2: rgb(108, 117, 125);
+  --font-size-footer-G: 26px;
+  --font-size-footer-P: 16px;
+  --font-size-footer-G-scream-400px: 26px;
+  --font-size-footer-P-scream-400px: 25px;
 }
+/* ===== Reset Básico ===== */
 html, body {
   height: 100%;
   margin: 0;
@@ -35,7 +35,7 @@ body {
 main {
   flex: 1;
 }
-/* Menu de Navegação */
+/* ===== Menu de Navegação Superior ===== */
 .menu {
   padding: 0.5rem;
   background-color: #fff;
@@ -61,10 +61,9 @@ main {
   color: inherit;
 }
 .link::before {
+  content: "";
   position: absolute;
   z-index: -1;
-  content: "";
-  display: block;
   border-radius: 8px;
   width: 100%;
   height: 100%;
@@ -109,22 +108,22 @@ main {
   transform: translateX(0);
   opacity: 1;
 }
-/*imagem de Apresentacao do home*/
-.imagemApresentacao{
+/* ===== Imagem de Apresentação ===== */
+.imagemApresentacao {
   width: 100%;
   height: 100%;
-  max-width: 97%; /* Limita a largura máxima da imagem */
-  max-height: 600px; /* Limita a altura máxima da imagem */
-  object-fit: cover; /* Cobre o espaço sem distorcer a imagem */
-  margin: auto; /* Centraliza horizontalmente */
-  margin-top: 30px; /* Espaçamento superior */;
-  position: relative; /* Necessário para o posicionamento */ /* Espaçamento superior */
-  display: block; /* Garante que a imagem seja tratada como bloco */
+  max-width: 97%;
+  max-height: 600px;
+  object-fit: cover;
+  margin: auto;
+  margin-top: 30px;
+  position: relative;
+  display: block;
 }
-/* Botões de Login e Cadastro centro da tela*/
+/* ===== Botões de Cadastro/Login ===== */
 .btn_login_btn_cadastro {
   width: min(47%, 275px);
-  height: 5%; /* altura do container dos botões de login e cadastro */
+  height: 5%;
   position: relative;
   top: 50%;
   left: 50%;
@@ -136,7 +135,6 @@ main {
   justify-content: center;
   align-items: center;
 }
-
 .lista {
   display: flex;
   gap: var(--gap-elementos-btn-log-cad);
@@ -144,8 +142,6 @@ main {
   margin: 0;
   list-style: none;
 }
-
-/* Base do link e posição relativa */
 .linksBtn {
   position: relative;
   display: inline-block;
@@ -157,54 +153,43 @@ main {
   padding: 10px 20px;
   z-index: 1;
   overflow: hidden;
-  white-space: nowrap; /* Impede a quebra de linha */
+  white-space: nowrap;
 }
-
-/* * Pseudo-elemento para a BORDA
- * Ele se forma primeiro
- */
 .linksBtn::before {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 0; /* Começa com altura 0 */
+  height: 0;
   z-index: -1;
 }
-/* * Pseudo-elemento para o FUNDO
- * Ele vem em seguida
- */
 .linksBtn::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 0; /* Começa com altura 0 */
-  background-color: var(--cor-fundo-btn-login-hover); /* O fundo que vai cobrir */
-  border-radius:10px;
+  height: 0;
+  background-color: var(--cor-fundo-btn-login-hover);
+  border-radius: 10px;
   z-index: -2;
-  transition: height 0.3s ease 0.2s; /* Transição para o fundo, com um delay de 0.2s */
+  transition: height 0.3s ease 0.2s;
 }
-/* Estado de HOVER */
 .linksBtn:hover::before,
 .linksBtn:hover::after {
-  height: 100%; /* Ambos crescem no hover */
+  height: 100%;
 }
 .linksBtn:hover {
-  color: var(--cor-do-texto-no-hover); /* Muda a cor do texto no hover */
+  color: var(--cor-do-texto-no-hover);
 }
-/* Correção para a quebra de linha do Cadastrar-se */
 .btn_cadastro {
   align-items: center;
-  /* Removido o max-width problemático */
 }
-/* Removido max-width para evitar quebra de linha */
 .btn_cadastro a .linksBtn {
-  max-width: initial !important; 
+  max-width: initial !important;
 }
-/* Footer */
+/* ===== Footer ===== */
 .footer {
   background-color: var(--cor-fundo-footer);
   padding: 17px 0;
@@ -215,20 +200,24 @@ main {
   flex-direction: column;
   gap: 10px;
   margin-top: auto;
+  font-family: var(--font-geral);
 }
 .paragrafoUmFooter {
-  font-family: var(--font-geral);
-  font-size: clamp(var(--font-size-footer-P) 2vw, var(--font-size-footer-G));
   color: var(--cor-paragrafo-footer-1);
   margin: 0;
+  font-size: clamp(var(--font-size-footer-P), 2vw, var(--font-size-footer-G));
 }
 .paragrafoDoisFooter {
-  font-family: var(--font-geral);
-  font-size: clamp(var(--font-size-footer-P) 2vw, var(--font-size-footer-G));
   color: var(--cor-paragrafo-footer-2);
   margin: 0;
+  font-size: clamp(var(--font-size-footer-P), 2vw, var(--font-size-footer-G));
 }
+/* ===== Responsividade ===== */
+/* Menores que 400px */
 @media (max-width: 400px) {
+  :root {
+    --gap-elementos-btn-log-cad: 2rem;
+  }
   .menu {
     flex-direction: column;
     padding: 0.2rem;
@@ -251,8 +240,6 @@ main {
     width: 95%;
     flex-direction: column;
     gap: 10px;
-    left: 50%;
-    top: 50%;
     transform: translate(-50%, 0%);
   }
   .lista {
@@ -273,5 +260,159 @@ main {
   .paragrafoUmFooter,
   .paragrafoDoisFooter {
     font-size: 13px;
+  }
+}
+/* Smartphones médios */
+@media (min-width: 401px) and (max-width: 600px) {
+  :root {
+    --gap-elementos-btn-log-cad: 2.5rem;
+  }
+  .menu {
+    flex-direction: column;
+    padding: 0.3rem;
+  }
+  .link {
+    width: 100%;
+    height: 48px;
+    font-size: 16px;
+  }
+  .imagemApresentacao {
+    max-width: 100%;
+    max-height: 260px;
+    margin-top: 15px;
+  }
+  .btn_login_btn_cadastro {
+    width: 90%;
+    flex-direction: column;
+    gap: 12px;
+    transform: translate(-50%, 0%);
+  }
+  .lista {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .linksBtn {
+    font-size: 20px;
+    padding: 10px 12px;
+    width: 100%;
+    text-align: center;
+  }
+}
+/* Smartphones grandes e tablets pequenos */
+@media (min-width: 601px) and (max-width: 900px) {
+  .menu {
+    flex-direction: row;
+    padding: 0.4rem;
+  }
+  .link {
+    width: 80px;
+    height: 50px;
+    font-size: 18px;
+  }
+  .imagemApresentacao {
+    max-width: 98%;
+    max-height: 350px;
+    margin-top: 20px;
+  }
+  .btn_login_btn_cadastro {
+    width: 80%;
+    flex-direction: row;
+    gap: 20px;
+    transform: translate(-50%, 0%);
+  }
+  .lista {
+    flex-direction: row;
+    gap: 20px;
+  }
+  .linksBtn {
+    font-size: 22px;
+    padding: 12px 18px;
+  }
+}
+/* Tablets médios e notebooks pequenos */
+@media (min-width: 901px) and (max-width: 1200px) {
+  .menu {
+    flex-direction: row;
+    padding: 0.5rem 2rem;
+  }
+  .link {
+    width: 90px;
+    height: 54px;
+    font-size: 20px;
+  }
+  .imagemApresentacao {
+    max-width: 97%;
+    max-height: 450px;
+    margin-top: 25px;
+  }
+  .btn_login_btn_cadastro {
+    width: 70%;
+    gap: 30px;
+    transform: translate(-50%, 0%);
+  }
+  .lista {
+    gap: 30px;
+  }
+  .linksBtn {
+    font-size: 24px;
+    padding: 14px 22px;
+  }
+}
+/* Telas grandes */
+@media (min-width: 1201px) and (max-width: 1600px) {
+  .menu {
+    flex-direction: row;
+    padding: 0.7rem 4rem;
+  }
+  .link {
+    width: 100px;
+    height: 56px;
+    font-size: 22px;
+  }
+  .imagemApresentacao {
+    max-width: 97%;
+    max-height: 550px;
+    margin-top: 30px;
+  }
+  .btn_login_btn_cadastro {
+    width: 60%;
+    gap: 40px;
+    transform: translate(-50%, 0%);
+  }
+  .lista {
+    gap: 40px;
+  }
+  .linksBtn {
+    font-size: 26px;
+    padding: 16px 28px;
+  }
+}
+/* Telas extra grandes */
+@media (min-width: 1601px) {
+  .menu {
+    flex-direction: row;
+    padding: 1rem 8rem;
+  }
+  .link {
+    width: 120px;
+    height: 60px;
+    font-size: 24px;
+  }
+  .imagemApresentacao {
+    max-width: 97%;
+    max-height: 700px;
+    margin-top: 40px;
+  }
+  .btn_login_btn_cadastro {
+    width: 50%;
+    gap: 60px;
+    transform: translate(-50%, 0%);
+  }
+  .lista {
+    gap: 60px;
+  }
+  .linksBtn {
+    font-size: 28px;
+    padding: 18px 36px;
   }
 }
